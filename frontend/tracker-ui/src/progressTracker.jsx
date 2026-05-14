@@ -11,6 +11,15 @@ function ProgressTracker({currentAmount = 0, goalAmount = 1000}){
     };
 
     return(
+
+        <div>
+            <div className="progress-bar-container">
+                <div className="progress-bar-fill"
+                     style={{width: `${progress}%`}}>
+
+                </div>
+            </div>
+
         <div className="progress-container">
             <div className="progress-circle">
                 {/*progress ring*/}
@@ -20,6 +29,7 @@ function ProgressTracker({currentAmount = 0, goalAmount = 1000}){
                     <h2>${currentAmount}</h2>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
