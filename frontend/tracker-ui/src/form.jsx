@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import incomeOption from "./assets/util/formFunctions.jsx";
 
 function InfoForm(){
     const [incomeType, setIncomeType] = useState("");
-    const [incomeAmount, setIncomeAmount] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (e) =>{
@@ -35,7 +35,13 @@ function InfoForm(){
                         Commission
                     </label>
                 </div>
+                {incomeOption(incomeType)}
+                <button type="submit">
+                    Submit
+                </button>
             </form>
         </div>
     )
 }
+
+export default InfoForm;
