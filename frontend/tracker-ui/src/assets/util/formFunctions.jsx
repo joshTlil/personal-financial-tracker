@@ -1,6 +1,8 @@
 import { useState } from 'react';
 const [incomeAmount, setIncomeAmount] = useState("");
+import "../css/form.css";
 
+// I can not use this function because of some react rule
 function incomeOption(incomeType){
     {if(incomeType === "Hourly" || incomeType === "Commission")
     return(

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import incomeOption from "./assets/util/formFunctions.jsx";
+import "./assets/css/form.css";
 
 function InfoForm(){
     const [incomeType, setIncomeType] = useState("");
@@ -8,8 +9,8 @@ function InfoForm(){
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        //
-        navigate("/");
+        localStorage.setItem('incomeType', JSON.stringify({incomeType}));
+        navigate("/", {state: {incomeType}});
     }
 
     return (
@@ -35,6 +36,7 @@ function InfoForm(){
                         Commission
                     </label>
                 </div>
+                {/*I can't do this,code right here will throw an error*/}
                 {incomeOption(incomeType)}
                 <button type="submit">
                     Submit

@@ -2,6 +2,7 @@ import ProtectedRoute from "./ProtectedRoute.jsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./home.jsx";
 import Login from "./login.jsx";
+import InfoForm from "./form.jsx";
 
 function App() {
     return(
@@ -16,6 +17,7 @@ function App() {
             </ProtectedRoute>
         }
     />
+    <Route path="/form" element={<InfoForm />}/>
             </Routes>
         </BrowserRouter>
     );
