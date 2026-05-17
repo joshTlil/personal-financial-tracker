@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import incomeOption from "./assets/util/formFunctions.jsx";
 import "./assets/css/form.css";
 
 function InfoForm(){
     const [incomeType, setIncomeType] = useState("");
+    const [incomeAmount, setIncomeAmount] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (e) =>{
         e.preventDefault();
         localStorage.setItem('incomeType', JSON.stringify({incomeType}));
-        navigate("/", {state: {incomeType}});
+        navigate("/home", {state: {incomeType}});
     }
 
     return (
@@ -37,7 +37,33 @@ function InfoForm(){
                     </label>
                 </div>
                 {/*I can't do this,code right here will throw an error*/}
-                {incomeOption(incomeType)}
+                {/*{incomeOption(incomeType)}*/}
+                {(incomeType === "Hourly" || incomeType === "Commission") && (
+                    <div className="form-group">
+                    <label>
+                    What is your monthly income goal?
+                    </label>
+                    <input
+                    type="number"
+                    placeholder="Enter monthly income goal"
+                    value={incomeAmount}
+                onChange={(e) => setIncomeAmount(e.target.value)}
+            />
+        </div>
+                )}
+                {(incomeType === "Salary") &&(
+                <div className="form-group">
+                    <label>
+                        What is your monthly salary?
+                    </label>
+                    <input
+                        type="number"
+                        placeholder="Enter monthly salary?"
+                        value={incomeAmount}
+                        onChange={(e) => setIncomeAmount(e.target.value)}
+                    />
+                </div>
+                )}
                 <button type="submit">
                     Submit
                 </button>
