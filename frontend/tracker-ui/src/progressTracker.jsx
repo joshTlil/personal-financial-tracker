@@ -1,10 +1,11 @@
 import "./assets/css/progressTracker.css";
+const getInfo = localStorage.getItem('userData');
+const makeParse = JSON.parse(getInfo);
+const income = Number(makeParse.userData.incomeAmount);
+const payType = makeParse.userData.incomeType;
 
-function ProgressTracker({currentAmount = 0, goalAmount = 1000}){
-    const progress = (currentAmount / goalAmount) * 100;
-    const getInfo = localStorage.getItem('incomeType');
-    const makeParse = JSON.parse(getInfo);
-    const value = makeParse.incomeType;
+function ProgressTracker({currentAmount, income}){
+    const progress = (currentAmount / income) * 100;
     const overlayStyle = {
         background: `conic-gradient(
             #4caf50 ${progress}%,
@@ -15,13 +16,13 @@ function ProgressTracker({currentAmount = 0, goalAmount = 1000}){
     return(
 
         <div>
-            <h2>Income: {value}</h2>
+            <h2>Income Type: {payType}</h2>
             <div className="progress-bar-container">
                 <div className="progress-bar-fill"
                      style={{width: `${progress}%`}}>
                 </div>
                 <span className="progress-bar-text">
-                    0/420
+                    0/{income}
                 </span>
             </div>
 

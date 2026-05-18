@@ -9,8 +9,12 @@ function InfoForm(){
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        localStorage.setItem('incomeType', JSON.stringify({incomeType}));
-        navigate("/home", {state: {incomeType}});
+        const userData = {
+            incomeType,
+            incomeAmount
+        };
+        localStorage.setItem('userData', JSON.stringify({userData}));
+        navigate("/home", {state: {userData}});
     }
 
     return (

@@ -7,7 +7,7 @@ function Home() {
             <Link to="/form">
                 Form
             </Link>
-            <ProgressTracker currentAmount={800} goalAmount={1000}/>
+            <ProgressTracker currentAmount={2} goalAmount={2}/>
         </div>
     );
 }
